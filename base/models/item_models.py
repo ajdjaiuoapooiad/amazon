@@ -1,9 +1,16 @@
 from django.db import models
+import os
 from django.utils.crypto import get_random_string
 
 # urlから特定されないため
 def create_id(): 
     return get_random_string(22)
+
+def upload_image_to(instance, filename):
+    item_id = str(instance.id)
+    return os.path.join('static', 'items', item_id, filename)
+
+
 
 
 class Category(models.Model):
@@ -30,7 +37,9 @@ class Item(models.Model):
     is_published=models.BooleanField('公開',default=True)
     created_at=models.DateTimeField('作成日',auto_now_add=True)
     update_at=models.DateTimeField('更新日',auto_now=True)
-    image=models.ImageField('画像',upload_to='media/images/',null=True,blank=True)
+    image = models.ImageField(
+        default="", blank=True, upload_to=upload_image_to)
+
     
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
     tags=models.ManyToManyField(Tag,blank=True)
