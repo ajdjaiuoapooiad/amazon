@@ -33,7 +33,7 @@ class Item(models.Model):
     image=models.ImageField('画像',upload_to='media/images/',null=True,blank=True)
     
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
-    tags=models.ManyToManyField(Tag)
+    tags=models.ManyToManyField(Tag,blank=True)
     def __str__(self):
         return self.name
     
