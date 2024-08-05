@@ -11,3 +11,4 @@ class ListView(generic.ListView):
 class ItemDetailView(generic.DetailView):
     model=Item
     template_name='pages/item.html'
+    
