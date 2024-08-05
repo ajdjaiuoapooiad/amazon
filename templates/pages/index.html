@@ -9,11 +9,7 @@
 <div class="container">
   <div class="row col-12">
     {%for object in object_list%}
-    <div class="col-4">
-      <img src="/{{object.image}}" alt="" class="w-100%">
-      <p>{{object.name}}</p>
-      <p>{{object.price}}</p> 
-    </div>
+      {% include 'snippets/item_box.html'%}
     {%endfor%}
   
   </div>
