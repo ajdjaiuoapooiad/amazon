@@ -9,6 +9,13 @@
         
         <div class="col-6 boarder">
             <h2><p>{{object.name}}</p></h2>
+
+            <a href="/category/{{object.category.slug}}/" 
+            class="badge badge-pill badge-warning">{{object.category.name}}</a>
+            {% for tag in object.tags.all %}
+            <a href="/tags/{{tag.slug}}/" class="badge badge-pill badge-light">#{{tag}}</a>
+            {% endfor %}
+
             <p>残り{{object.stock}}個</p>
             <p>{{object.tect}}</p>
             <h4><p>¥　{{object.price}}</p></h4>

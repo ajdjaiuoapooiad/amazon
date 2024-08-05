@@ -21,7 +21,14 @@ from base import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Cart
+    #account
+    #Order
+    #Pay
     
+    #Item
+    path('tags/<str:pk>/',views.TagListView.as_view()),
+    path('category/<str:pk>/',views.CategoryListView.as_view()),
     path('items/<str:pk>/', views.ItemDetailView.as_view()),
     
     path('',views.ListView.as_view()),
