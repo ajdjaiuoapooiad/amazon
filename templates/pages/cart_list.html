@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{% block content%}
+<div class="container">
+
+    <h4>Cart一覧</h4>
+
+    {%for object in object_list%}
+        <p>No. {{forloop.counter}}</p>
+        <p>{{object.name}}</p>
+        <p>{{object.price}}</p>
+        <p>{{object.quantity}}</p>
+        <p>{{object.subtotal}}</p>
+        <p><a href="/cart/remove/{{object.pk}}/">削除</a></p>
+    {%endfor%}
+
+    <p>小計 - ¥{{totall}}</p>
+    <p>税込計 - ¥{{tax_included_totall}}</p>
+
+    <form action="" method="">
+
+    <button type="submit" class="btn btn-dark">Check out</button>
+    </form>
+</div>
+
+{%endblock%}

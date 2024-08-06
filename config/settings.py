@@ -137,3 +137,5 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # 追記
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TAX_RATE=0.1 #追記

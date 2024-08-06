@@ -7,7 +7,7 @@
             <img src="/{{object.image}}" alt="" width="100%" height="300px">
         </div>
         
-        <div class="col-6 boarder">
+        <div class="col-6 border">
             <h2><p>{{object.name}}</p></h2>
 
             <a href="/category/{{object.category.slug}}/" 
@@ -20,7 +20,8 @@
             <p>{{object.tect}}</p>
             <h4><p>¥　{{object.price}}</p></h4>
 
-            <form action="" method="POST" >
+            <form action="/cart/add/" method="POST" >
+            {%csrf_token%}
                 <input type="hidden" name="item_pk" value="{{object.pk}}">
                 <p>
                     <input type="number" class="form-control d-inline w-25" name="quantity" value="1" max="{{object.stock}}"> 点
