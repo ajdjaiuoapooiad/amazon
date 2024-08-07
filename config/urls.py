@@ -29,6 +29,8 @@ urlpatterns = [
 
     #account
 
+    
+
     #Order
     #Pay
     path('pay/checkout/',views.PayWithStripe.as_view()),

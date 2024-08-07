@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+
+{%block content%}
+<div class="container">
+    <form action="POST">
+    {%csrf_token%}
+        <p>Username</p>
+        <input type="text" value="{{user.username}}" name="username">
+
+        <p>Email</p>
+        <input type="email" value="{{user.email}}" name="email">
+
+        <button type="submit" class="btn btn-dark">Save</button>
+    </form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+
+{%block content%}
+<div class="container">
+
+    <form action="" method="POST">
+    {%csrf_token%}
+
+        <input type="text" name="username" class="" value="Username">
+        <input type="email" name="email" class="" value="Email">
+        <input type="password" name="password" class="" value="Password">  
+
+        <button type="submit" class="btn btn-dark">
+            {%if 'signup' in request.path%}
+            Signup
+            {%elif 'login' in request.path %}
+            Login
+            {%endif%}
+        </button>
+    </form>
+    </div>
+
+
+{%endblock%}
