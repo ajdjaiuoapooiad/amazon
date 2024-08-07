@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 class UserCreateForm(forms.ModelForm):
     password=forms.CharField()
     
+    #signupのnameで受け取った値をuserに格納する
     class Meta:
         model=get_user_model()
         fields={'username','email','password'}

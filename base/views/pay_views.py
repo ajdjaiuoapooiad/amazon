@@ -51,6 +51,9 @@ def create_line_item(unit_amount,name,quantity):
         
     }
     
+#追記
+
+    
 class PayWithStripe(generic.View):
     
     def post(self,request,*args,**kwargs):
