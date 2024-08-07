@@ -20,16 +20,20 @@
           <a class="nav-link" href="/cart/">Cart</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/login/">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signup/">Signup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout/">Logout</a>
-        </li>
+        {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
 
+        {%else%}
+          <li class="nav-item">
+            <a class="nav-link" href="/login/">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup/">Signup</a>
+          </li>
+        
+        {%endif%}
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
