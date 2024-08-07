@@ -17,10 +17,14 @@
     <p>小計 - ¥{{totall}}</p>
     <p>税込計 - ¥{{tax_included_totall}}</p>
 
-    <form action="" method="">
+    <!--checkouto  ボタン-->
+    <form action="/pay/checkout/" method="POST">
+    {%csrf_token%}
 
     <button type="submit" class="btn btn-dark">Check out</button>
     </form>
+
+    
 </div>
 
 {%endblock%}
