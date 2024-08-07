@@ -7,9 +7,9 @@
     <form action="" method="POST">
     {%csrf_token%}
 
-        <input type="text" name="username" class="" value="Username">
-        <input type="email" name="email" class="" value="Email">
-        <input type="password" name="password" class="" value="Password">  
+        <input type="text" name="username" class="" placeholder="Username">
+        <input type="email" name="email" class="" placeholder="Email" >
+        <input type="password" name="password" class="" placeholder="Password">  
 
         <button type="submit" class="btn btn-dark">
             {%if 'signup' in request.path%}

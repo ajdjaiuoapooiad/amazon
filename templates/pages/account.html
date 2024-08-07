@@ -3,7 +3,7 @@
 
 {%block content%}
 <div class="container">
-    <form action="POST">
+    <form action="/account/" method="POST">
     {%csrf_token%}
         <p>Username</p>
         <input type="text" value="{{user.username}}" name="username">
