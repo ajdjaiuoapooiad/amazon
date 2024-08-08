@@ -1,29 +1,47 @@
 {%extends 'base.html'%}
 
 {% block content%}
-<div class="container">
+<div class="container mb-5">
 
     <h4>Cart一覧</h4>
 
-    {%for object in object_list%}
-        <p>No. {{forloop.counter}}</p>
-        <p>{{object.name}}</p>
-        <p>{{object.price}}</p>
-        <p>{{object.quantity}}</p>
-        <p>{{object.subtotal}}</p>
-        <p><a href="/cart/remove/{{object.pk}}/">削除</a></p>
-    {%endfor%}
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>数量</th>
+            <th>計</th>
+          </tr>
+        </thead>
+        <tbody>
+        {%for object in object_list%}
+          <tr>
+            <th scope="row">No. {{forloop.counter}}</th>
+            <td>{{object.name}}</td>
+            <td>{{object.price}}</td>
+            <td>{{object.quantity}}</td>
+            <td>{{object.subtotall}}</td>
+            <td><a href="/cart/remove/{{object.pk}}/" class="btn btn-danger">削除</a></td>
+          </tr>
+        {%endfor%}
+        </tbody>
+      </table>
+      
+    <div class="text-right">
+        <p>小計 - ¥{{totall}}</p>
+        <p>税込計 - ¥{{tax_included_totall}}</p>
 
-    <p>小計 - ¥{{totall}}</p>
-    <p>税込計 - ¥{{tax_included_totall}}</p>
+        <!--checkouto  ボタン-->
+        <form action="/pay/checkout/" method="POST">
+        {%csrf_token%}
 
-    <!--checkouto  ボタン-->
-    <form action="/pay/checkout/" method="POST">
-    {%csrf_token%}
-
-    <button type="submit" class="btn btn-dark">Check out</button>
-    </form>
-
+        <button type="submit" class="btn btn-info">Check out</button>
+        </form>
+ 
+    </div>
+    
     
 </div>
 

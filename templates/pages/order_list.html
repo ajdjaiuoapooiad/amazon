@@ -2,20 +2,31 @@
  
 {% block content %}
 
-<div class="container">
+<div class="container mt-5 mb-5">
 
     <h4>Order</h4>
 
-    {%for object in object_list%}
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>No</th>
+            <th>日付</th>
+            <th>価格</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for object in object_list%}
+            <tr>
+                <th scope="row"><a href="/order/{{object.pk}}/">{{object.pk}}</a></th>
+                <td>{{object.created_at}}</td>
+                <td>{{object.tax_included}}</td>
+            </tr>
+            {%endfor%}
+          
+        </tbody>
+      </table>
 
-    <p>No</p>
-    <p><a href="/order/{{object.pk}}/">{{object.pk}}</a></p>
-    <p>日付</p>
-    <p>{{object.created_at}}</p>
-    <p>価格</p>
-    <p>{{object.tax_included}}</p>
 
-    {%endfor%}
 
 </div>
 {% endblock %}

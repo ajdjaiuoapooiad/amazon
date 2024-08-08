@@ -8,7 +8,7 @@
         </div>
         
         <div class="col-6 border">
-            <h2><p>{{object.name}}</p></h2>
+            <h1><p>{{object.name}}</p></h1>
 
             <a href="/category/{{object.category.slug}}/" 
             class="badge badge-pill badge-warning">{{object.category.name}}</a>
@@ -18,7 +18,7 @@
 
             <p>残り{{object.stock}}個</p>
             <p>{{object.tect}}</p>
-            <h4><p>¥　{{object.price}}</p></h4>
+            <h2><p>¥{{object.price}}</p></h2>
 
             <form action="/cart/add/" method="POST" >
             {%csrf_token%}
@@ -26,7 +26,7 @@
                 <p>
                     <input type="number" class="form-control d-inline w-25" name="quantity" value="1" max="{{object.stock}}"> 点
                 </p>
-                <button type="submit" class="btn btn-dark">Add to cart</button>
+                <button type="submit" class="btn btn-success">Add to cart</button>
             </form>
             
 

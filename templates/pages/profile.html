@@ -4,7 +4,7 @@
 {%block content%}
 <div class="container">
 
-    <h4>プロフィール</h4>
+    <h1>プロフィール</h1>
 
     <form action="" method="POST">
     {%csrf_token%}
@@ -22,9 +22,9 @@
         <input type="text" name="tel" value="{{user.profile.tel}}">
 
 
-        <button type="submit" class="btn btn-dark">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
-    </div>
+</div>
 
 
 {%endblock%}

@@ -1,9 +1,10 @@
 from django.views import generic
 from base.models import Order
 import json
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class OrderListView(generic.ListView):
+class OrderListView(LoginRequiredMixin,generic.ListView):
     model=Order
     template_name='pages/order_list.html'
     
