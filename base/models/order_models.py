@@ -13,7 +13,7 @@ class Order(models.Model):
     uid=models.CharField(max_length=50,editable=False)
     is_confirmed=models.BooleanField(default=False)  #多分２択
     amount=models.PositiveIntegerField(default=0)
-    tax_include=models.PositiveIntegerField(default=0)
+    tax_included=models.PositiveIntegerField(default=0)
     items=models.JSONField()
     shipping=models.JSONField()
     shipped_at=models.DateTimeField(blank=True,null=True)

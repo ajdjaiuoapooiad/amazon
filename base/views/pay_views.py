@@ -107,7 +107,7 @@ class PayWithStripe(LoginRequiredMixin,generic.View):
             shipping=serializers.serialize('json',[request.user.profile]),  #
             items=json.dumps(items),                            #よくわからない
             amount=cart['totall'],
-            tax_include=cart['tax_included_totall'],
+            tax_included=cart['tax_included_totall'],
             
         )
             
