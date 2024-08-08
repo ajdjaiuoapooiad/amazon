@@ -37,6 +37,9 @@ urlpatterns = [
     
 
     #Order
+    path('order/<str:pk>/',views.OrderDetailView.as_view()),
+    path('order/',views.OrderListView.as_view()),
+    
     #Pay
     path('pay/checkout/',views.PayWithStripe.as_view()),
     path('pay/success/',views.PaySuccessView.as_view()),

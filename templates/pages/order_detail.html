@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+
+<div class="container">
+
+    <div class="">
+        <h4>注文情報</h4>
+
+        <p>No</p>
+        <p>{{object.pk}}</p>
+        <p>金額</p>
+        <p>{{object.amount}}</p>
+        <p>税込</p>
+        <p>{{object.tax_included}}</p>
+        <p>注文確定日</p>
+        <p>{{object.created_at}}</p>
+        <p>UID</p>
+        <p>{{object.uid}}</p>
+        
+        <p>都道府県</p>
+        <p></p>
+        <p>市区</p>
+        <p>住所１</p>
+        <p>住所２</p>
+        <p>電話番号</p>
+    </div>
+    
+    <div class="">
+        <h4>発送状況</h4>
+
+
+
+    </div>
+    
+
+
+</div>
+{% endblock %}

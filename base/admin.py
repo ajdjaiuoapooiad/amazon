@@ -1,5 +1,5 @@
 from django.contrib import admin
-from base.models import Tag,Category,Item,User,Profile
+from base.models import Tag,Category,Item,User,Profile,Order
 from django.contrib.auth.models import Group
 from base.forms import UserCreateForm
 from django.contrib.auth.admin import UserAdmin
@@ -35,6 +35,7 @@ class CustomAdomin(UserAdmin):
     inlines=(ProfileInline,)
 
 # Register your models here.
+admin.site.register(Order)
 admin.site.register(User,CustomAdomin) #
 admin.site.register(Category)
 admin.site.register(Tag)

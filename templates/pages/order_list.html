@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+
+<div class="container">
+
+    <h4>Order</h4>
+
+    {%for object in object_list%}
+
+    <p>No</p>
+    <p><a href="/order/{{object.pk}}/">{{object.pk}}</a></p>
+    <p>日付</p>
+    <p>{{object.created_at}}</p>
+    <p>価格</p>
+    <p>{{object.tax_included}}</p>
+
+    {%endfor%}
+
+</div>
+{% endblock %}
