@@ -7,23 +7,63 @@
     <div class="">
         <h4>注文情報</h4>
 
-        <p>No</p>
-        <p>{{object.pk}}</p>
-        <p>金額</p>
-        <p>{{object.amount}}</p>
-        <p>税込</p>
-        <p>{{object.tax_included}}</p>
-        <p>注文確定日</p>
-        <p>{{object.created_at}}</p>
-        <p>UID</p>
-        <p>{{object.uid}}</p>
-        
-        <p>都道府県</p>
-        <p></p>
-        <p>市区</p>
-        <p>住所１</p>
-        <p>住所２</p>
-        <p>電話番号</p>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">No</th>
+                <td>{{object.pk}}</td>
+              </tr>
+              <tr>
+                <th scope="row">金額</th>
+                <td>{{object.amount}}</td>
+              </tr>
+              <tr>
+                <th scope="row">税込</th>
+                <td>{{object.tax_included}}</td>
+              </tr>
+              <tr>
+                <th scope="row">注文確定日</th>
+                <td>{{object.created_at}}</td>
+              </tr>
+              <tr>
+                <th scope="row">UID</th>
+                <td>{{object.uid}}</td>
+              </tr>
+
+              <!--下記　　      なぜ表示できるのかわからない-->
+              <tr>
+                <th scope="row">都道府県</th>
+                <td>{{shipping.0.fields.prefecture}}</td>
+              </tr>
+              <tr>
+                <th scope="row">市区</th>
+                <td>{{shipping.0.fields.city}}</td>
+              </tr>
+              <tr>
+                <th scope="row">住所１</th>
+                <td>{{shipping.0.fields.address1}}</td>
+              </tr>
+              <tr>
+                <th scope="row">住所２</th>
+                <td>{{shipping.0.fields.address2}}</td>
+              </tr>
+              <tr>
+                <th scope="row">電話番号</th>
+                <td>{{shipping.0.fields.tel}}</td>
+              </tr>
+
+            </tbody>
+
+            <!--ここまで　　　　-->
+          </table>
+
+      
     </div>
     
     <div class="">
