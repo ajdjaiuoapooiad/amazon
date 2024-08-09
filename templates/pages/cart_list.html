@@ -46,12 +46,14 @@
     <div class="my-5">
       <h2>おすすめ一覧</h2>
       <div class="row ">
-      {%for object in ADDTIONAL_ITEMS%}
-      <div class="col-4">
-          {%include 'snippets/item_add_box.html'%}
-      </div>
-          
-      {%endfor%}
+
+          {%for object in ADDTIONAL_ITEMS%}
+          {%if forloop.counter < 7 %}
+          <div class="col-4">
+              {%include 'snippets/item_add_box.html'%}
+          </div>
+          {%endif%}
+          {%endfor%}
       </div>
     </div>
     

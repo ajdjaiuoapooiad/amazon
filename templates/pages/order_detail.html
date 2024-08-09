@@ -65,14 +65,53 @@
 
       
     </div>
-    
-    <div class="">
-        <h4>発送状況</h4>
+   
 
-
-
+    <!---注文状況----------------------->
+      <h2 class="my-4">注文状況</h2>
+    <div>
+      {% if object.shipped_at %}
+      <div class="my-3 ">
+        <button class="btn btn-primary" disabled>発送済み: {{object.shipped_at}}</button>
+      </div>
+      {% else %}
+      <div class="my-3 ">
+        <button class="btn btn-secondary" disabled>未発送</button>
+      </div>
+      {% endif %}
+      {% if object.canceled_at %}
+      <div class="my-3 ">
+        <button class="btn btn-danger" disabled>キャンセル済み: {{object.canceled_at}}</button>
+      </div>
+      {% endif %}
     </div>
-    
+
+    <h2 class="my-4">注文アイテム一覧</h2>
+    <table class="table mb-5">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">画像</th>
+          <th scope="col">品名</th>
+          <th scope="col">単価</th>
+          <th scope="col">数量</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><img src="/{{item.image}}" width="auto" height="100px"></td>
+          <td>{{ item.name }}</td>
+          <td>¥{{item.price}}</td>
+          <td>{{item.quantity}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
 
 
 </div>
