@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+
 
 
 class SignupView(generic.CreateView):
@@ -13,21 +15,27 @@ class SignupView(generic.CreateView):
     success_url='/login/'
     template_name='pages/signup_login.html'
     
+    #message
     def form_valid(self,form):
-        messages.success(self.request,'新規登録が完了しました。ログインしてください。')
+        messages.success(self.request,'新規登録しました。')
         return super().form_valid(form)
-
+    
+    
 class Login(LoginView):
     template_name='pages/signup_login.html'
     
+    #message
     def form_valid(self,form):
-        messages.success(self.request,'ログインが完了しました。')
+        messages.success(self.request,'ログインしました。')
         return super().form_valid(form)
     
     def form_invalid(self,form):
-        messages.error(self.request,'ログインできませんでした。')
+        messages.error(self.request,'エラーでログインできませんでした。')
         return super().form_valid(form)
+    
 
+    
+    
 class AccountUpdateView(LoginRequiredMixin,generic.UpdateView):
     model=get_user_model()
     template_name='pages/account.html'
