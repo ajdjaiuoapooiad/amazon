@@ -46,7 +46,7 @@ urlpatterns = [
     path('pay/cancel/',views.PayCancelView.as_view()),
     
     #Item
-    path('tags/<str:pk>/',views.TagListView.as_view()),
+    path('tag/<str:pk>/',views.TagListView.as_view()),
     path('category/<str:pk>/',views.CategoryListView.as_view()),
     path('items/<str:pk>/', views.ItemDetailView.as_view()),
     
