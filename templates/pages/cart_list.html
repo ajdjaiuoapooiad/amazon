@@ -41,17 +41,19 @@
         </form>
  
     </div>
-
-    <h2>おすすめ一覧</h2>
-    <div class="row">
+     
+    <!--おすすめ一覧---------------->
+    <div class="my-5">
+      <h2>おすすめ一覧</h2>
+      <div class="row ">
       {%for object in ADDTIONAL_ITEMS%}
       <div class="col-4">
-        {%include 'snippets/item_add_box.html'%}
+          {%include 'snippets/item_add_box.html'%}
       </div>
-        
+          
       {%endfor%}
+      </div>
     </div>
-    
     
 </div>
 
