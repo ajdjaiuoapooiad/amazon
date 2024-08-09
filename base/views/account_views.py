@@ -47,6 +47,11 @@ class AccountUpdateView(LoginRequiredMixin,generic.UpdateView):
         self.kwargs['pk']=self.request.user.pk
         return super().get_object()   
     
+    #message
+    def form_valid(self,form):
+        messages.info(self.request,'アカウント情報を更新しました。')
+        return super().form_valid(form)
+    
 class ProfileUpdateView(LoginRequiredMixin,generic.UpdateView):
     model=Profile
     template_name='pages/profile.html'
@@ -57,3 +62,8 @@ class ProfileUpdateView(LoginRequiredMixin,generic.UpdateView):
         # URL変数ではなく、現在のユーザーから直接pkを取得
         self.kwargs['pk']=self.request.user.pk
         return super().get_object()   
+    
+    #message
+    def form_valid(self,form):
+        messages.info(self.request,'プロフィールを更新しました。')
+        return super().form_valid(form)
