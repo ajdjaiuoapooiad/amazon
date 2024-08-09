@@ -6,9 +6,30 @@
 {% include 'snippets/headerline.html'%}
 
 <div class="container mt-5">
-  <div class="row col-12">
+
+  <h2>売れ筋一覧</h2>
+  <div class="row col-12 my-5">
+
+    {%for object in POPULAR_ITEMS%}
+    {%if forloop.counter < 4 %}
+    <div class="col-4">
+      <span class="badge badge-info">{{forloop.counter}}番人気</span>
+      <p class="">{%include 'snippets/item_box.html'%}</p>
+    </div>
+    
+    {%endif%}
+    {%endfor%}
+
+  </div>
+  
+
+  <h2>商品一覧</h2>
+  <div class="row col-12 my-5">
     {%for object in object_list%}
-      {% include 'snippets/item_box.html'%}
+      <div class="col-4">
+        {% include 'snippets/item_box.html'%}
+      </div>
+      
     {%endfor%}
   
   </div>

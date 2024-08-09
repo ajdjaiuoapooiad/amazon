@@ -76,6 +76,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'config.custom_context_processor.base',  #追記
+                
             ],
         },
     },
@@ -165,3 +167,5 @@ MESSAGE_TAGS={
     
     
 }
+
+TITLE='Amazon'
