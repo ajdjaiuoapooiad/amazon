@@ -5,6 +5,7 @@ from base.models import Item
 from collections import OrderedDict
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 class CartListView(LoginRequiredMixin,generic.ListView):
@@ -45,6 +46,7 @@ class AddCartView(LoginRequiredMixin,generic.View):
         item_pk=request.POST.get('item_pk') #item.name
         quantity=int(request.POST.get('quantity')) #item.amount
         cart=request.session.get('cart',None)
+        messages.info(self.request,'カートに追加しました。') #
         if cart is None or len(cart)==0:
             items=OrderedDict()
             cart={'items':items}
@@ -54,6 +56,7 @@ class AddCartView(LoginRequiredMixin,generic.View):
             cart['items'][item_pk] = quantity
         request.session['cart']=cart
         return redirect('/cart/')
+    
 @login_required   
 def remove_from_cart(request,pk):
     cart=request.session.get('cart',None)

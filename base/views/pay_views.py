@@ -19,6 +19,7 @@ class PaySuccessView(LoginRequiredMixin,generic.TemplateView):
     def get(self,request,*args,**kwargs):
         
          # カート情報削除
+        messages.success(self.request,'支払いが完了しました。') #
         del request.session['cart']
         return super().get(request,*args,**kwargs)
         
@@ -40,7 +41,7 @@ class PayCancelView(LoginRequiredMixin,generic.TemplateView):
         # is_confirmedがFalseであれば削除（仮オーダー削除）
         if not order.is_confirmed:
             order.delete()
-        
+        messages.error(self.request,'支払いがキャンセルされました。') #
         return super().get(request,*args,**kwargs)
         
 tax_rate=stripe.TaxRate.create(
@@ -65,15 +66,32 @@ def create_line_item(unit_amount,name,quantity):
         
     }
     
-#追記
-
+#プロフィールが埋まっているかの確認
+def check_profile_filled(profile):
+    if profile.name is None or profile.name == '':
+        return False
+    
+    elif profile.prefecture is None or profile.prefecture == '':
+        return False
+    elif profile.city is None or profile.city == '':
+        return False
+    elif profile.address1 is None or profile.address1 == '':
+        return False
+    return True
     
 class PayWithStripe(LoginRequiredMixin,generic.View):
     
     def post(self,request,*args,**kwargs):
         
+        # プロフィールが埋まっているかどうか確認
+        if not check_profile_filled(request.user.profile):
+            messages.error(request, 'プロフィールを埋めてください。')
+            return redirect('/profile/')
+ 
+        #カートが空の場合
         cart=request.session.get('cart',None)
         if cart is None or len(cart)==0:
+            messages.error(self.request,'カートが空です。') #
             return redirect('/')
         
       
