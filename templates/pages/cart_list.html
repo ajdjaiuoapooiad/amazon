@@ -41,6 +41,16 @@
         </form>
  
     </div>
+
+    <h2>おすすめ一覧</h2>
+    <div class="row">
+      {%for object in ADDTIONAL_ITEMS%}
+      <div class="col-4">
+        {%include 'snippets/item_add_box.html'%}
+      </div>
+        
+      {%endfor%}
+    </div>
     
     
 </div>
